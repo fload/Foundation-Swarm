@@ -1,0 +1,6 @@
+# Add Ellah's writing samples here as .txt files.
+# Filename convention: [type]_[brief description].txt
+# Examples: donor_thank_you_sample.txt, board_memo_sample.txt, linkedin_post_sample.txt
+#
+# The VoiceLibrary tool will load these to calibrate tone on drafting tasks.
+# Never commit files containing real donor names, financial data, or personal information.

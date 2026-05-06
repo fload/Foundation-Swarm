@@ -1,162 +1,180 @@
-<div align="center">
+# Foundation Swarm
 
-# 🚀 OpenSwarm
+A multi-agent AI team for a senior philanthropic strategist — built on [Agency Swarm](https://agency-swarm.ai).
 
-![OpenSwarm](assets/new-framework.jpg)
+Supports two organizational contexts:
 
-</div>
-
-**The fully open-source multi-agent system that does everything Claude Code can't.**
-
-Create polished slide decks, research reports, data visualizations, documents, images, and videos — all from a single prompt in your terminal. No platform, no UI, no setup hassles.
-
-✨ **One prompt → Complete deliverables**
-🎯 **8 specialized agents working together**
-⚡ **Install in 30 seconds, running in 60**
-🔧 **100% customizable and forkable**
-
-Built on [Agency Swarm](https://github.com/VRSEN/agency-swarm) — the framework powering real AI agencies.
+- **Library Foundation of Los Angeles (LFLA)** — development strategy, grant writing, donor stewardship, board management, and communications for one of LA's largest public library funders
+- **Crestline Collective** — philanthropic consulting practice (client work is kept strictly separate from LFLA)
 
 ---
 
-> 💼 **Investor or looking to integrate AI agents into your SaaS?**
-> We're the team behind OpenSwarm and Agency Swarm, building the future of multi-agent systems.
-> **[Partner with us →](https://vrsen-ai.notion.site/fee2d391a8d74b24baa04a0b648af83c?pvs=105)**
+## Agents
 
----
+| Agent | Role | Key Tools |
+|---|---|---|
+| **Orchestrator** | Routes tasks, manages multi-agent workflows, enforces org context | — |
+| **Virtual Assistant** | Daily briefings, deadlines, tasks, meeting prep, CRM hygiene | DeadlineTracker, TaskManager, MeetingPrep, CrmUpdater |
+| **Development Agent** | Grant research, RFP parsing, proposal writing, prospect briefs, major gift strategy | SearchGrants, FunderProfile, ParseRFP, ProspectBrief, DeadlineLog |
+| **Research Agent** | News monitoring, policy tracking, Census data, org/funder deep dives | NewsMonitor, CensusData, LegiscanTracker, OrgDeepDive |
+| **Communications Agent** | Donor letters, board memos, LinkedIn posts, event copy, voice-checking | VoiceLibrary, ContactContext, AudienceRegister |
+| **Slides & Documents Agent** | Board decks, funder pitch decks, strategic plans, one-pagers, reports | BrandLoader, ChartBuilder, + all PPTX and Word doc tools |
+| **Strategy & Impact Agent** | Financial analysis, logic models, evaluation frameworks, strategic planning | FinancialRatios, LogicModelBuilder, ChartBuilder |
 
-## 💡 What Makes This Different?
+## Agent Communication Map
 
-Instead of one agent trying to do everything poorly, you get **specialists coordinated by an orchestrator**.
-
-### 🎯 Real Examples
-
-Paste these into your terminal and watch magic happen:
-
-- **"Create a complete investor pitch for OpenSwarm"** → Full deck + executive summary + market research
-- **"Research my top 5 competitors and write 3 SEO-optimized blog posts"** → Competitive analysis + keyword research + publish-ready content
-- **"Analyze this data and create a quarterly report with charts"** → Data insights + visualizations + formatted document
-- **"Generate a product launch video with animations"** → Professional video with graphics and transitions
-- **"Build me a marketing campaign for Q2"** → Strategy doc + creative assets + implementation timeline
-
-Connect to 10,000+ external services (Gmail, Slack, GitHub, HubSpot) via Composio for even more power.
-
----
-
-## 🤖 Meet Your AI Team
-
-| Agent                      | What it does                                                                                                                                                                                 |
-| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Orchestrator**           | Routes every user request to the right specialist(s). Never answers directly — pure coordination.                                                                                            |
-| **Virtual Assistant**      | Handles everyday tasks: writing, scheduling, messaging, task management. Gains 10,000+ external integrations via [Composio](https://composio.dev) (Gmail, Slack, GitHub, HubSpot, and more). |
-| **Deep Research**          | Conducts comprehensive, evidence-based web research with citations and balanced analysis.                                                                                                    |
-| **Data Analyst**           | Analyses structured data, builds charts, runs statistical models — all inside an isolated IPython kernel.                                                                                    |
-| **Slides Agent**           | Generates complete, visually polished HTML slide decks, then exports them to PPTX.                                                                                                           |
-| **Docs Agent**             | Creates formatted Word documents and PDFs from outlines or raw content.                                                                                                                      |
-| **Image Generation Agent** | Generates and edits images using Gemini 2.5 Flash Image / Gemini 3 Pro Image and fal.ai.                                                                                                     |
-| **Video Generation Agent** | Produces videos via Sora (OpenAI), Veo (Google), and Seedance (fal.ai); also edits and combines clips.                                                                                       |
-
----
-
-## 📦 Get Started in 30 Seconds
-
-**For most users (recommended):**
-
-```bash
-npm install -g @vrsen/openswarm
-openswarm
+```
+orchestrator → all agents
+virtual_assistant → development_agent       (flag grant deadlines)
+virtual_assistant → communications_agent    (draft outreach from CRM context)
+development_agent → communications_agent    (voice-check proposals/LOIs)
+development_agent → research_agent          (funder research feeds proposals)
+development_agent → slides_documents_agent  (grant calendars, pitch decks)
+research_agent    → development_agent       (research feeds proposal writing)
+research_agent    → communications_agent    (research feeds thought leadership)
+strategy_impact_agent → slides_documents_agent  (financial analysis → board decks)
+strategy_impact_agent → development_agent   (logic models feed grant narratives)
 ```
 
-That's it! The setup wizard handles everything: authentication, dependencies, and configuration.
-
-**Requirements:** Node.js 20+ (Python 3.10+ auto-installed)
-
-## 🔧 Build Your Own Swarm
-
-Fork this repo and create your own specialized AI team in minutes:
-
-```bash
-git clone https://github.com/VRSEN/openswarm.git
-cd openswarm
-```
-
-Then tell **Claude Code**, **Cursor**, or **Codex**:
-
-> _"Turn this into an SEO optimization swarm"_
-
-They'll automatically customize all agents for your use case.
-
-**Popular custom swarms:**
-
-- **SEO Swarm:** Keyword research + competitor analysis + blog writing
-- **Sales Swarm:** Lead research + outreach + proposal generation
-- **Marketing Swarm:** Campaign planning + creative assets + analytics
-- **Product Swarm:** Market research + feature specs + launch materials
-
-## ⚙️ API Keys & Setup
-
-The setup wizard walks you through everything, but you'll need at least one of these:
-
-**Required (choose one):**
-
-- `OPENAI_API_KEY` - For GPT 5.5 and Sora video generation
-- `ANTHROPIC_API_KEY` - For Claude models
-
-**Optional superpowers:**
-
-- `COMPOSIO_API_KEY` - Unlock 10,000+ integrations (Gmail, Slack, GitHub, etc.)
-- `GOOGLE_API_KEY` - Gemini image generation + Veo video
-- `FAL_KEY` - Advanced video editing and effects
-- `SEARCH_API_KEY` - Web search for research agent
-
-Tools gracefully degrade when keys are missing — you'll get clear instructions on what to add.
-
 ---
 
-## 🚀 Coming Soon
+## Setup
 
-- **Agent Builder Agent** - Create custom swarms from a single prompt
-- **OpenClaw + Claude Code integration** - All agents in one place
-
-⭐ **Star us on GitHub** to stay updated and help us prioritize features!
-
-## 🏗️ For Developers
-
-**Local development:**
+### 1. Clone and install dependencies
 
 ```bash
-git clone https://github.com/VRSEN/openswarm.git
-cd openswarm
-python swarm.py
+git clone https://github.com/your-org/Foundation-Swarm.git
+cd Foundation-Swarm
+uv sync
 ```
 
-**Docker deployment:**
+### 2. Configure environment variables
 
 ```bash
-git clone https://github.com/VRSEN/openswarm.git
-cd openswarm
-cp .env.example .env        # Add your API keys
-docker-compose up --build
+cp .env.example .env
+```
+
+Open `.env` and add your API keys. The minimum required key is `OPENAI_API_KEY`.
+
+| Variable | Required | Description |
+|---|---|---|
+| `OPENAI_API_KEY` | ✅ Required | Powers all agents |
+| `CANDID_API_KEY` | Optional | Funder profile data (Development Agent) |
+| `NEWS_API_KEY` | Optional | News monitoring (Research Agent) |
+| `CENSUS_API_KEY` | Optional | Community data for grant narratives (Research Agent) |
+| `LEGISCAN_API_KEY` | Optional | CA/federal bill tracking (Research Agent) |
+| `VA_INTEGRATIONS_ENABLED` | Optional | Master switch for live integrations (default: `false`) |
+| `COMPOSIO_API_KEY` | Optional | Required only if `VA_INTEGRATIONS_ENABLED=true` |
+
+### 3. Run
+
+**Terminal (interactive demo):**
+```bash
+uv run python run.py
 ```
 
 **API server:**
-
 ```bash
-python server.py           # Runs on localhost:8080
+uv run python server.py
 ```
 
 ---
 
-## 📺 Learn More
+## Virtual Assistant — Integrations
 
-- **Watch the full demo:** [YouTube video →](https://youtu.be/c5DdXzqaeVU?si=rM2CNaZ8qVwMvqmz)
-- **Multi-agent framework:** [Agency Swarm](https://github.com/VRSEN/agency-swarm)
-- **External integrations:** [Composio](https://composio.dev)
+The Virtual Assistant works **fully in file-upload / manual-input mode** without any live integrations. This is the default and recommended starting point.
+
+Live integrations (Gmail, Google Calendar, Google Drive, Outlook) are available but **must be explicitly enabled** after confirming IT and organizational approval:
+
+```bash
+# In .env — enable only after confirmed IT approval
+VA_INTEGRATIONS_ENABLED=true
+VA_GMAIL_ENABLED=true     # Requires Google Workspace admin approval
+VA_GCAL_ENABLED=true      # Requires org Google account access
+VA_GDRIVE_ENABLED=true    # Requires org Google account access
+VA_OUTLOOK_ENABLED=true   # Requires IT approval
+```
+
+Notion has lower IT friction and can be enabled independently:
+```bash
+VA_NOTION_ENABLED=true
+```
 
 ---
 
-## 📄 License
+## Shared Data Files
 
-MIT — see [LICENSE](LICENSE).
+The swarm uses three shared JSON files in `data/` that persist across sessions:
 
-**Built with ❤️ by the team behind [Agency Swarm](https://github.com/VRSEN/agency-swarm)**
+| File | Purpose |
+|---|---|
+| `data/contacts.json` | CRM — donors, funders, partners, board members |
+| `data/deadlines.json` | Deadline register — grants, governance, reports |
+| `data/tasks.json` | Task tracker — open items, owners, statuses |
+
+These files are read and written by the Virtual Assistant and Development Agent. Never commit files containing real donor or contact data.
+
+---
+
+## Brand Assets
+
+LFLA and Crestline Collective brand specs (colors, fonts, logo paths) are managed by the `BrandLoader` tool:
+
+- Store brand specs at: `slides_documents_agent/files/brand/brand.json`
+- Place logo files in the same directory
+- Update via the agent: `"Update LFLA brand colors to [official hex codes]"`
+
+Default placeholder colors are included — update with official brand guidelines before producing external materials.
+
+---
+
+## Org Context Rules
+
+Every agent confirms org context before producing branded or sensitive content:
+
+- **LFLA** — supports the Los Angeles Public Library
+- **Crestline** — consulting practice, clients are confidential
+- **Board** — Ellah's personal board service (CNM-SoCal, LAGCC)
+
+If org context is ambiguous, agents ask before proceeding — they never guess.
+
+**Conflict of interest**: if the same funder or partner appears in both LFLA and Crestline contexts, all agents stop and flag to Ellah before taking any action.
+
+---
+
+## Project Structure
+
+```
+swarm.py                     ← main config: imports agents, defines connections
+shared_instructions.md       ← org context shared across all agents
+run.py                       ← CLI entry point
+server.py                    ← FastAPI server entry point
+
+orchestrator/                ← routing and orchestration
+virtual_assistant/           ← deadlines, tasks, CRM, meeting prep
+development_agent/           ← grants, proposals, prospect research
+research_agent/              ← news, policy, Census, org research
+communications_agent/        ← voice, drafting, editing
+slides_documents_agent/      ← PPTX decks, Word docs, charts
+strategy_impact_agent/       ← financial analysis, logic models, strategy
+
+shared_tools/                ← tools available to all agents
+data/                        ← shared JSON data files (CRM, deadlines, tasks)
+```
+
+---
+
+## Development
+
+```bash
+# Run individual tool tests
+uv run python development_agent/tools/search_grants.py
+uv run python research_agent/tools/census_data.py
+uv run python strategy_impact_agent/tools/financial_ratios.py
+
+# Run test suite
+uv run python -m pytest tests/ -v
+
+# Smoke test agency imports
+uv run python -c "from swarm import create_agency; a = create_agency(); print('OK', len(a.agents), 'agents')"
+```
